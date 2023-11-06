@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="KihonEngine.Studio.Controls.ModelEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KihonEngine.Studio.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="5" Name="propertyGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="imgModelType" Height="20" Width="20" Stretch="UniformToFill" />
+                <Label x:Name="lblModelTitle" Margin="5"/>
+            </StackPanel>
+        </Label>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" x:Name="panelHelp">
+            <Image Height="160" Width="120" Stretch="UniformToFill" Source="/Content/Images/Icons/help-model-properties-transparent.png" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" x:Name="panelHelpPlayMode">
+            <Image Height="240" Width="120" Stretch="UniformToFill" Source="/Content/Images/Icons/help-playmode-transparent.png" />
+        </StackPanel>
+
+        <Grid Grid.Row="1" x:Name="gridPositionAndRotation">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <!-- Position -->
+                <RowDefinition Height="26"/>
+                
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+
+                <!-- Rotation -->
+                <RowDefinition Height="26"/>
+
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            <!-- Position -->
+            <Label Grid.Row="0" Grid.Column="0">Position</Label>
+            <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">X</Label>
+            <local:NumericUpDown Grid.Row="1" Grid.Column="1" Margin="1" HorizontalAlignment="Stretch" x:Name="tbPositionX" KeyUp="tbPositionX_KeyUp"/>
+            <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left">Y</Label>
+            <local:NumericUpDown Grid.Row="2" Grid.Column="1" Margin="1" HorizontalAlignment="Stretch" x:Name="tbPositionY" KeyUp="tbPositionY_KeyUp"/>
+            <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left">Z</Label>
+            <local:NumericUpDown Grid.Row="3" Grid.Column="1" Margin="1" HorizontalAlignment="Stretch" x:Name="tbPositionZ" KeyUp="tbPositionZ_KeyUp"/>
+
+            <!-- Rotation -->
+            <Label Grid.Row="4" Grid.Column="0">Rotations</Label>
+            <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left">X Axis</Label>
+            <local:NumericUpDown Grid.Row="5" Grid.Column="1" Margin="1" HorizontalAlignment="Stretch" x:Name="tbRotationX" KeyUp="tbRotationX_KeyUp"/>
+            <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left">Y Axis</Label>
+            <local:NumericUpDown Grid.Row="6" Grid.Column="1" Margin="1" HorizontalAlignment="Stretch" x:Name="tbRotationY" KeyUp="tbRotationY_KeyUp"/>
+            <Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left">Z Axis</Label>
+            <local:NumericUpDown Grid.Row="7" Grid.Column="1" Margin="1" HorizontalAlignment="Stretch" x:Name="tbRotationZ" KeyUp="tbRotationZ_KeyUp"/>
+        </Grid>
+
+        <Grid Grid.Row="2" x:Name="gridGenericProperties">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="26"/>
+                <RowDefinition/>
+
+                <RowDefinition Height="26"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Generic Properties</Label>
+            <Label Grid.Row="1" Grid.Column="0">Color</Label>
+            <ComboBox Name="cbColors" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Stretch"  SelectionChanged="cbColors_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="10" Height="10" Margin="5" Background="{Binding}"/>
+                            <TextBlock  Text="{Binding}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblCustomPropertiesTitle"/>
+                </StackPanel>
+            </Label>
+        </Grid>
+
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <DockPanel Name="panelCustomProperties" />
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="4" Orientation="Vertical" x:Name="panelActions">
+            <Label >Actions</Label>
+            <Button Margin="1" HorizontalAlignment="Stretch" Name="btnRemoveModel" Click="btnRemoveModel_Click">Delete</Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
