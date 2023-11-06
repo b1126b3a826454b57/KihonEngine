@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Authors>Nicolas VIEL</Authors>
+    <Company>Nicolas VIEL</Company>
+    <Copyright>Copyright (c) 2021 Nicolas VIEL</Copyright>
+    <Version>2021.10.17</Version>
+    <Product>Kihon Engine</Product>
+    <Title>Kihon Engine</Title>
+    <PackageIcon>packageIcon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/b1126b3a826454b57/KihonEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/b1126b3a826454b57/KihonEngine</RepositoryUrl>
+    <Description>Kihon Engine is a basic 3D engine developed in dotnet core and WPF. It can be used for developpinng basic 3D video games.</Description>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>csharp game-engine dotnetcore wpf video-game 3d</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Content\Images\Skyboxes\sky1-full.png" />
+    <None Remove="Content\Images\Textures\default.png" />
+    <None Remove="Content\Images\Textures\floor0.jpg" />
+    <None Remove="Content\Images\Textures\Hon.png" />
+    <None Remove="Content\Images\Textures\Ki.png" />
+    <None Remove="Content\Images\Textures\steve-back.png" />
+    <None Remove="Content\Images\Textures\steve-front.png" />
+    <None Remove="Content\Images\Textures\steve-left.png" />
+    <None Remove="Content\Images\Textures\steve-right.png" />
+    <None Remove="Content\Images\Textures\steve-top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\Images\Skyboxes\sky1-full.png" />
+    <EmbeddedResource Include="Content\Images\Textures\default.png" />
+    <EmbeddedResource Include="Content\Images\Textures\floor0.jpg" />
+    <EmbeddedResource Include="Content\Images\Textures\hon.png" />
+    <EmbeddedResource Include="Content\Images\Textures\ki.png" />
+    <EmbeddedResource Include="Content\Images\Textures\steve-back.png" />
+    <EmbeddedResource Include="Content\Images\Textures\steve-front.png" />
+    <EmbeddedResource Include="Content\Images\Textures\steve-left.png" />
+    <EmbeddedResource Include="Content\Images\Textures\steve-right.png" />
+    <EmbeddedResource Include="Content\Images\Textures\steve-top.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="GameEngine\Graphics\Output\HeadUpDisplayEditorMode.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GameEngine\Graphics\Output\HeadUpDisplayPlayMode.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GameEngine\Graphics\Output\WorldVisualizeFullScreenWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GameEngine\Graphics\Output\WorldVizualizer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LICENSE.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="packageIcon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="GameEngine\Graphics\Output\HeadUpDisplayEditorMode.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GameEngine\Graphics\Output\HeadUpDisplayPlayMode.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GameEngine\Graphics\Output\WorldVisualizeFullScreenWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GameEngine\Graphics\Output\WorldVizualizer.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  
+</Project>
