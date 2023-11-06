@@ -4,8 +4,8 @@
     <UseWPF>true</UseWPF>
     <Authors>Nicolas VIEL</Authors>
     <Company>Nicolas VIEL</Company>
-    <Copyright>Copyright (c) 2021 Nicolas VIEL</Copyright>
-    <Version>2021.10.17</Version>
+    <Copyright>Copyright (c) 2023 Nicolas VIEL</Copyright>
+    <Version>2023.11.6</Version>
     <Product>Kihon Engine</Product>
     <Title>Kihon Engine</Title>
     <PackageIcon>packageIcon.png</PackageIcon>
